@@ -20,12 +20,15 @@ const users = [
     }
 ]
 
+// Get all users
 app.get('/users', (req, res, next) => {
     res.json({
         data: users
     })
 })
 
+
+// Get user by id
 app.get('/users/:id', (req, res) => {
     const { id } = req.params; 
     res.json({
@@ -33,6 +36,8 @@ app.get('/users/:id', (req, res) => {
     }) 
 })
 
+
+// Delete user
 app.delete('/users/:id', (req, res) => {
     const { id } = req.params; 
     res.json({
@@ -43,6 +48,7 @@ app.delete('/users/:id', (req, res) => {
 })
 
 
+// Update user
 app.put('/users/:id', (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
@@ -63,6 +69,8 @@ app.put('/users/:id', (req, res) => {
 })
 
 
+
+// Add user
 app.post('/users', (req, res) => {
     const { name } = req.body; 
     users.push({name})
